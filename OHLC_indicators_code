@@ -1,0 +1,50 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Load your CSV
+master_day = pd.read_csv(r"C:\Users\KAVI\Downloads\master_25min.csv")
+master_day['start_time'] = pd.to_datetime(master_day['start_time'])
+master_day.set_index('start_time', inplace=True)
+
+# --- Helper Functions ---
+def calculate_ema(data, span):
+    return data.ewm(span=span, adjust=False).mean()
+
+def calculate_rsi(data, window=14):
+    delta = data.diff()
+    gain = delta.where(delta > 0, 0).rolling(window=window).mean()
+    loss = -delta.where(delta < 0, 0).rolling(window=window).mean()
+    rs = gain / loss
+    return 100 - (100 / (1 + rs))
+
+def calculate_bollinger_bands(data, window=20):
+    sma = data.rolling(window=window).mean()
+    std = data.rolling(window=window).std()
+    upper_band = sma + 2 * std
+    lower_band = sma - 2 * std
+    return sma, upper_band, lower_band
+
+# --- MACD ---
+master_day['EMA12'] = calculate_ema(master_day['close'], 12)
+master_day['EMA26'] = calculate_ema(master_day['close'], 26)
+master_day['MACD_Line'] = master_day['EMA12'] - master_day['EMA26']
+master_day['Signal_Line'] = calculate_ema(master_day['MACD_Line'], 9)
+master_day['MACD_Histogram'] = master_day['MACD_Line'] - master_day['Signal_Line']
+master_day['MACD_Signal'] = 0
+master_day.loc[master_day['MACD_Line'] > master_day['Signal_Line'], 'MACD_Signal'] = 1
+master_day.loc[master_day['MACD_Line'] < master_day['Signal_Line'], 'MACD_Signal'] = -1
+master_day['MACD_Position'] = master_day['MACD_Signal'].diff()
+
+# --- RSI ---
+master_day['RSI_14'] = calculate_rsi(master_day['close'])
+
+# --- Bollinger Bands ---
+master_day['BB_Middle'], master_day['BB_Upper'], master_day['BB_Lower'] = calculate_bollinger_bands(master_day['close'])
+
+# --- Clean for Power BI ---
+master_day.reset_index(inplace=True)  # convert date index to column
+master_day.dropna(inplace=True)       # remove rows with missing values
+master_day.to_csv("master_25min_macd_rsi_bb_clean.csv", index=False)  # final CSV
+
+print("✅ CSV exported successfully for Power BI.")
