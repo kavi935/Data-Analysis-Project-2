@@ -1,34 +1,34 @@
 # Data-Analysis-Project-2
 
-# 📊 NIFTY 50 OHLC Dashboard Project (Daily, 5-Minute, 25-Minute)
+#  NIFTY 50 OHLC Dashboard Project (Daily, 5-Minute, 25-Minute)
 
 This project presents a **multi-timeframe analysis** of NIFTY 50 stock market data using **Python, SQL, and Power BI**. It showcases technical indicators like RSI, MACD, SMA, and Bollinger Bands — all brought together into interactive dashboards for **daily**, **5-minute**, and **25-minute** intervals.
 
 ---
 
-## 🖼️ Dashboard Previews
+## Dashboard Previews
 
-### 📅 Daily View  
+###  Daily View  
 ![NIFTY OHLC Dashboard - Daily](Screenshot(day).png)
 
-### ⏱️ 5-Minute View  
+###  5-Minute View  
 ![NIFTY OHLC Dashboard - 5Min](Screenshot(5min).png)
 
-### ⏱️ 25-Minute View  
+###  25-Minute View  
 ![NIFTY OHLC Dashboard - 25Min](Screenshot(25min).png)
 
-> 🧭 All dashboards are built with identical structure and filters to enable seamless time-based comparisons.
+>  All dashboards are built with identical structure and filters to enable seamless time-based comparisons.
 
 ---
 
-## 🎥 Dashboard Walkthrough
+##  Dashboard Walkthrough
 
-▶️ [Click here to watch full NIFTY dashboard demo](https://drive.google.com/uc?export=download&id=1ynnISazsBVBx6XZywOWQHHjozF91CU7P)
+-- [Click here to watch full NIFTY dashboard demo](https://drive.google.com/uc?export=download&id=1ynnISazsBVBx6XZywOWQHHjozF91CU7P)
 
 
 ---
 
-## 🐍 Python Script – Financial Calculations
+##  Python Script – Financial Calculations
 
 All indicator logic is written in:
 
@@ -38,7 +38,7 @@ All indicator logic is written in:
   - `calculated_financial_metrics_master_5min.csv`
   - `calculated_financial_metrics_master_25min.csv`
 
-📦 Additional cleaned and zipped outputs:
+ Additional cleaned and zipped outputs:
 
 - `OHLC_indicators_code.py` – computes MACD, RSI, drawdown, return, Bollinger Bands, etc.  
 - Outputs:
@@ -46,27 +46,27 @@ All indicator logic is written in:
 - `master_5min_macd_rsi_bb_clean.zip`  
 - `master_25min_macd_rsi_bb_clean.csv`
 
-> 🔁 To generate output for different timeframes (5-min or 25-min), change the  name from master_day to respective 5min & 25min in code.
+>  To generate output for different timeframes (5-min or 25-min), change the  name from master_day to respective 5min & 25min in code.
 
 ---
 
-## 🗃️ SQL Queries – Data Preparation
+##  SQL Queries – Data Preparation
 
 All preprocessing is done via:
 - `OHLC_queries.sql`
 
-🟩 Computes:
+--- Computes:
 - SMA values  
 - Monthly volatility  
 - Price gaps  
 - Streak and trend logic
 - Consecutive Up/Down Days
 
-🔄 **To switch from day to 5min or 25min**, just change the  name from master_day to respective 5min & 25min in query.
+ **To switch from day to 5min or 25min**, just change the  name from master_day to respective 5min & 25min in query.
 
 ---
 
-## 📁 Project Files
+##  Project Files
 
 | File Name                                 | Description |
 |------------------------------------------|-------------|
@@ -85,36 +85,36 @@ All preprocessing is done via:
 
 ---
 
-### 🔹 Dataset Coverage:
+###  Dataset Coverage:
 - Timeframes: **Daily, 5min, 25min**
 - Parameters: **Open, High, Low, Close, Volume**
 - Derived indicators: **MACD, RSI, SMA (20/50), Bollinger Bands**, Volatility, Price Gaps
 
 ---
 
-### 🔹 Key Observations (Daily Example-(Day)):
-- 📈 **Total Return**: +190.19%, **Sharp Ratio**: 0.72 → Indicates decent long-term risk-adjusted performance  
-- 📉 **Max Drawdown**: –38.44% → Risk exposure during market dips  
-- 🔄 **Price Gaps & Volatility**: High gap activity and volatility in March 2020 (COVID crash)  
-- 📊 **MACD, RSI, Bollinger Bands**: Show trend shifts, overbought/oversold zones, and breakout setups
+###  Key Observations (Daily Example-(Day)):
+-  **Total Return**: +190.19%, **Sharp Ratio**: 0.72 → Indicates decent long-term risk-adjusted performance  
+-  **Max Drawdown**: –38.44% → Risk exposure during market dips  
+-  **Price Gaps & Volatility**: High gap activity and volatility in March 2020 (COVID crash)  
+-  **MACD, RSI, Bollinger Bands**: Show trend shifts, overbought/oversold zones, and breakout setups
 
 ---
 
-### 💡 What This Dashboard Helps With:
-- ✅ Quickly identify bullish/bearish trends and momentum shifts  
-- ✅ Spot volatile periods and manage portfolio risk  
-- ✅ Compare trading behavior across timeframes  
-- ✅ Useful for investors (daily) and intraday traders (5min/25min)
+###  What This Dashboard Helps With:
+-  Quickly identify bullish/bearish trends and momentum shifts  
+-  Spot volatile periods and manage portfolio risk  
+-  Compare trading behavior across timeframes  
+-  Useful for investors (daily) and intraday traders (5min/25min)
 
 ---
 
 
-## 🧰 Tools Used
+##  Tools Used
 
-- 🐍 Python (Pandas, NumPy, matplotlib logic)  
-- 🗃️ SQL (Preprocessing and feature engineering)  
-- 📊 Power BI (Interactive visuals and dashboards)  
-- 🎥 Google Drive (for video walkthrough)
+-  Python (Pandas, NumPy, matplotlib logic)  
+-  SQL (Preprocessing and feature engineering)  
+-  Power BI (Interactive visuals and dashboards)  
+-  Google Drive (for video walkthrough)
 
 ---
 
